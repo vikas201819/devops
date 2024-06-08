@@ -1,4 +1,5 @@
-import { Schema, model } from 'mongoose';
+import { Model, Schema, model } from 'mongoose';
+import { PostType } from '../types/post-type';
 
 const postSchema = new Schema({
   authorName: String,
@@ -15,4 +16,6 @@ const postSchema = new Schema({
   },
 });
 
-export default model('Post', postSchema);
+const Post: Model<PostType> = model<PostType>('Post', postSchema);
+
+export default Post;
